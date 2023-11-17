@@ -1,8 +1,11 @@
 #pragma once
 
+/*! A limited implementation of std::span. */
 template <class T>
 class Span {
 public:
+  Span() = default;
+
   /*! Create a Span with `n` elements.
    *
    * \tparam n Number of elements.
@@ -36,8 +39,8 @@ public:
   size_t size() const;
 
 private:
-  T* arr_ {};
-  size_t size_ {};
+  T* arr_ {nullptr};
+  size_t size_ {0};
 };
 
 
