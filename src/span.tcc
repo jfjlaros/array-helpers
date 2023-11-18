@@ -1,6 +1,6 @@
 #pragma once
 
-/*! A limited implementation of std::span. */
+/*! A limited implementation of `std::span`. */
 template <class T>
 class Span {
 public:
@@ -16,13 +16,34 @@ public:
   Span(T (&arr)[n]);
 
 
-  T& operator [](size_t const);
-  T const& operator [](size_t const) const;
+  /*! Get a reference to the element indexed by `idx`.
+   *
+   * \param idx Index.
+   *
+   * \return Reference to element.
+   */
+  T& operator [](size_t const idx);
+
+  /*! \copydoc operator[](size_t const) */
+  T const& operator [](size_t const idx) const;
 
 
+  /*! Get a pointer to the start of the array.
+   *
+   * \return Pointer to the start of the array.
+   */
   T* begin();
+
+  /*! Get a pointer to the end of the array.
+   *
+   * \return Pointer to the end of the array.
+   */
   T* end();
+
+  /*! \copydoc begin() */
   T const* begin() const;
+
+  /*! \copydoc end() */
   T const* end() const;
 
 
@@ -34,7 +55,7 @@ public:
 
   /*! Get the number of elements.
    *
-   * \return Span size.
+   * \return Array size.
    */
   size_t size() const;
 
